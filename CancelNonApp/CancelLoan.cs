@@ -32,15 +32,15 @@ namespace CancelNonApp
         private void EncompassApplication_LoanClosing(object sender, EventArgs e)
         {
             User user = EncompassApplication.CurrentUser;
-            if (user.ID == "christophercl")
-            {
+            //if (user.ID == "christophercl")
+            //{
                 Loan loan = EncompassApplication.CurrentLoan;
                 if (loan.Fields["CX.REQUEST.CANCEL.NOAPP"].Value.ToString() == "X" & loan.Fields["3142"].Value == null)
                 {
                     loan.Session.Loans.Folders["Cancelled No Application"].IsTrash.Equals(true);
                     loan.MoveToFolder(loan.Session.Loans.Folders["Cancelled No Application"]);
                 }
-            }
+            //}
         }
     }
 }
